@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+This software is in the public domain under CC0 1.0 Universal plus a
+Grant of Patent License.
+
+To the extent possible under law, the author(s) have dedicated all
+copyright and related and neighboring rights to this software to the
+public domain worldwide. This software is distributed without any
+warranty.
+
+You should have received a copy of the CC0 Public Domain Dedication
+along with this software (see the LICENSE.md file). If not, see
+<http://creativecommons.org/publicdomain/zero/1.0/>.
+-->
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/service-definition-3.xsd">
+    <!-- Example & Related Services -->
+    <service verb="create" noun="Example" displayName="Create an Example by jaiswal" type="entity-auto" allow-remote="true" authenticate="anonymous-all">
+        <in-parameters>
+            <auto-parameters include="nonpk"/>
+            <parameter name="exampleName" required="true"/>
+            <parameter name="exampleName" required="true"/>
+            <!-- This is automatic based on parameter type: <parameter name="exampleSize"><number-decimal/></parameter> -->
+            <parameter name="examplePrice" ><number-decimal/></parameter>
+            <parameter name="exampleQuantity" ><number-integer/></parameter>
+            <parameter name="exampleDate" type="Timestamp" > </parameter>
+        </in-parameters>
+        <out-parameters>
+            <auto-parameters include="pk" required="true"/>
+        </out-parameters>
+    </service>
+
+    <service verb="update" noun="Example" displayName="update an Example by jaiswal" type="entity-auto" allow-remote="true" authenticate="anonymous-all">
+
+        <in-parameters>
+<!--            <auto-parameters include="nonpk"/>-->
+            <auto-parameters include="pk" required="true"/>
+<!--            <auto-parameters include="nonpk"/>-->
+            <parameter name="exampleId" required="false"/>
+            <parameter name="exampleName" required="false"/>
+            <parameter name="exampleDate" required="false"/>
+            <parameter name="exampleName" required="false"/>
+            <!-- This is automatic based on parameter type: <parameter name="exampleSize"><number-decimal/></parameter> -->
+            <parameter name="examplePrice" required="false"><number-decimal/></parameter>
+            <parameter name="exampleQuantity" required="false"><number-integer/></parameter>
+        </in-parameters>
+        <out-parameters>
+<!--            <auto-parameters include="pk" required="true"/>-->
+            <parameter name="exampleName" type="String" required="true"/>
+<!--            <parameter name="exampleId" type="String" required="true"/>-->
+        </out-parameters>
+    </service>
+
+    <!--    get examples-->
+</services>
